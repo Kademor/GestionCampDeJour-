@@ -1,0 +1,8 @@
+Choses a faire en ordre lol : 
+-Faire le mock du login
+-Faire le mock quand on clique sur un utilisateur
+-Faire le mock quand on clicque sur creer un user
+-Faire le mock quand on clique sur creer un campeur
+
+(github)
+download github desktop
