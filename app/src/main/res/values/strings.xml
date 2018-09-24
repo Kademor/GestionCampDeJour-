@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">GestionCampDeJour</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_test">testActivity</string>
+    <string name="btnSignIn">Sign in</string>
+
+
+    <!-- Strings related to Activity SignUp -->
+    <string name="CreateAccount">Create an account</string>
+    <string name="HintFirstName">First Name</string>
+    <string name="HintLastName">Last Name</string>
+    <string name="HintCampName">Camp Name</string>
+    <string name="btnSignUp">Sign Up</string>
+    <string name="back">Back</string>
+    <string name="HintPassword">Password</string>
+    <string name="HintConfirmPassword">Confirm Password</string>
+
+    <!-- Strings related to Activity List -->
+
+    <string name="btnAddCamper">Add a camper</string>
+
+    <!-- Strings related to Activity add campeur -->
+    <string name="txtAddACamper">Add a camper </string>
+    <string name="txtFirstName">First Name : </string>
+    <string name="txtLastName">Last Name : </string>
+    <string name="txtAlergies">Alegies : </string>
+    <string name="txtEmergencyNumber">Emercency Number : </string>
+    <string name="txtSpecialCase">Special Case : </string>
+
+
+    <!-- Strings related to Activity campeur -->
+
+
+    <!-- Strings related to Activity note -->
+
+
+    <!-- Strings related to Activity SignUp -->
+
+    <!-- Strings related to nav drawer -->
+    <string name="header_nav">Entete</string>
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
+    <string name="Home">Home</string>
+    <string name="CreateCamper">Create camper</string>
+    <string name="LogOut">Log out</string>
+
+</resources>
