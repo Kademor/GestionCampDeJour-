@@ -25,7 +25,8 @@ public class ServiceSeriveMock implements ServiceService{
 
     @Override
     public Call<User> getUser() {
-        return delegate.returningResponse(new User("Philippe","Morin" , "Merlin" ,"Password")).getUser();
+        User user = new User("Philippe","Morin" , "Merlin" ,"Password");
+        return delegate.returningResponse(user).getUser();
     }
 
     @Override

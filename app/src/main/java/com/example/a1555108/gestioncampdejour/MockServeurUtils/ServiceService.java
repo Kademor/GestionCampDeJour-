@@ -9,6 +9,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface ServiceService {
     @GET("/users/jorisdeguet/repos")
@@ -22,6 +23,9 @@ public interface ServiceService {
 
     @GET("/")
     Call<ArrayList<CamperList>> getCamperList();
+
+
+
 
 
 

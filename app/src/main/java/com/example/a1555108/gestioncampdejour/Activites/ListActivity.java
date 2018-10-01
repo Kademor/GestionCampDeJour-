@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a1555108.gestioncampdejour.Adapteurs.adapterCamperList;
@@ -22,6 +23,7 @@ import com.example.a1555108.gestioncampdejour.Classes.DrawerCopy;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.RetroFitUtils;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
+import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
 
 import java.util.ArrayList;
 
@@ -47,6 +49,10 @@ public class ListActivity extends AppCompatActivity {
 
         //NAV BAR SETUP
         //petite fleche
+        //SingletonUser user = new SingletonUser(getApplicationContext());
+        //TextView tv = (TextView)findViewById(R.id.HeaderNav);
+        //tv.setText(user.connectedUser.getCampName());
+
         NavigationView navBar =(NavigationView) findViewById(R.id.navBar);
         final DrawerLayout drawer_layout = (DrawerLayout) findViewById(R.id.drawer_Layout);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -62,9 +68,10 @@ public class ListActivity extends AppCompatActivity {
         };
         drawer_layout.addDrawerListener(toggle);
         toggle.syncState();
+        //Fin nav bar setup
 
 
-
+        //Bouton add camper
         Button btnAddCamp = (Button) findViewById(R.id.btnAddCamper);
         btnAddCamp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +113,7 @@ public class ListActivity extends AppCompatActivity {
                     adapter.addAll(response.body());
                 }
                 else {
-                    Log.i("ErreurIsSuccesfull", String.valueOf(response.code()));
+                    Log.i("ERREURMOCK", String.valueOf(response.code()));
                 }
             }
             @Override
