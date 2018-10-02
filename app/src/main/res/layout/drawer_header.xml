@@ -6,6 +6,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:id="@+id/HeaderNav"
-        android:text="@string/header_nav"/>
+        android:id="@+id/HeaderNavPlease"
+        android:text="change"/>
+       <!-- android:text="@string/header_nav" -->
 </LinearLayout>

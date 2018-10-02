@@ -1,6 +1,7 @@
 package com.example.a1555108.gestioncampdejour.Adapteurs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,14 +11,26 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.a1555108.gestioncampdejour.Activites.ListActivity;
 import com.example.a1555108.gestioncampdejour.Classes.Camper;
 import com.example.a1555108.gestioncampdejour.Classes.CamperList;
+import com.example.a1555108.gestioncampdejour.MockServeurUtils.RetroFitUtils;
+import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
+import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
 import com.squareup.otto.Bus;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class adapterCamperList extends ArrayAdapter<CamperList>{
 
     public Bus monbus = new Bus();
+    Camper camperLoad;
+    ServiceService service = RetroFitUtils.getMock();
+
+
 
     @NonNull
     @Override
@@ -38,7 +51,7 @@ public class adapterCamperList extends ArrayAdapter<CamperList>{
         btncamperName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                getCamperALoad(camperUnit.getId());
             }
         });
 
@@ -54,6 +67,25 @@ public class adapterCamperList extends ArrayAdapter<CamperList>{
             }
         });
         return  view;
+    }
+
+    //enqueue pour la requete
+    public void getCamperALoad(int CamperId){
+        service.getCamper(CamperId).enqueue(new Callback<Camper>() {
+            @Override
+            public void onResponse(Call<Camper> call, Response<Camper> response) {
+               camperLoad = response.body();
+                //Intent i = new Intent( getApplicationContext(),ListActivity.class);
+                //SingletonUser test = SingletonUser.getInstance();
+                //test.setUserConnected(userConnect);
+               //startActivity(i);
+            }
+
+            @Override
+            public void onFailure(Call<Camper> call, Throwable t) {
+
+            }
+        });
     }
 
     public adapterCamperList(@NonNull Context context) {

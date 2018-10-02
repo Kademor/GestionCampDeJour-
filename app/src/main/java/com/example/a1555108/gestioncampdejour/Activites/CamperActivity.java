@@ -1,6 +1,5 @@
 package com.example.a1555108.gestioncampdejour.Activites;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,15 +9,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Switch;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.a1555108.gestioncampdejour.Classes.DrawerCopy;
-import com.example.a1555108.gestioncampdejour.Classes.User;
 import com.example.a1555108.gestioncampdejour.R;
-
-import java.util.Calendar;
-
+import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
 
 
 public class CamperActivity extends AppCompatActivity {
@@ -32,6 +28,15 @@ public class CamperActivity extends AppCompatActivity {
 
         //NAV BAR SETUP
         //petite fleche
+
+        //Setup^nom
+        SingletonUser sing = SingletonUser.getInstance();
+        NavigationView navView = (NavigationView) findViewById(R.id.navBar);
+        View headerView = navView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.HeaderNavPlease);
+        navUsername.setText(sing.getUserConnected().getCampName());
+        //Setup^nom
+
         NavigationView navBar =(NavigationView) findViewById(R.id.navBar);
         final DrawerLayout drawer_layout = (DrawerLayout) findViewById(R.id.drawer_Layout);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -49,9 +49,17 @@ public class ListActivity extends AppCompatActivity {
 
         //NAV BAR SETUP
         //petite fleche
-        //SingletonUser user = new SingletonUser(getApplicationContext());
-        //TextView tv = (TextView)findViewById(R.id.HeaderNav);
-        //tv.setText(user.connectedUser.getCampName());
+        //singleton show user
+        SingletonUser sing = SingletonUser.getInstance();
+        NavigationView navView = (NavigationView) findViewById(R.id.navBar);
+        View headerView = navView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.HeaderNavPlease);
+        navUsername.setText(sing.getUserConnected().getCampName());
+
+        View inflatedView = getLayoutInflater().inflate(R.layout.drawer_header, null);
+        TextView tv2 = findViewById(R.id.HeaderNavPlease);
+        TextView tv = inflatedView.findViewById(R.id.HeaderNavPlease);
+        tv.setText("helllo");
 
         NavigationView navBar =(NavigationView) findViewById(R.id.navBar);
         final DrawerLayout drawer_layout = (DrawerLayout) findViewById(R.id.drawer_Layout);
@@ -80,6 +88,7 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
 
     }
 

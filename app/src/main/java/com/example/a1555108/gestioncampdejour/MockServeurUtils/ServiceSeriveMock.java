@@ -30,10 +30,10 @@ public class ServiceSeriveMock implements ServiceService{
     }
 
     @Override
-    public Call<Camper> getCamper() {
+    public Call<Camper> getCamper(int camperId) {
         ArrayList<String> allergiess = new ArrayList<String>();
         allergiess.add("Malaria");
-        return delegate.returningResponse(new Camper(1,"josh", "tremblay", allergiess, "12", "k")).getCamper();
+        return delegate.returningResponse(new Camper(1,"josh", "tremblay", allergiess, "12", "k")).getCamper(camperId);
     }
 
     @Override
@@ -49,6 +49,16 @@ public class ServiceSeriveMock implements ServiceService{
 
         return delegate.returningResponse(listNomCampeurs).getCamperList();
 
+    }
+
+    @Override
+    public Call<User> createUser(User user) {
+        return null;
+    }
+
+    @Override
+    public Call<Camper> createCamper(Camper camper) {
+        return null;
     }
 
 
