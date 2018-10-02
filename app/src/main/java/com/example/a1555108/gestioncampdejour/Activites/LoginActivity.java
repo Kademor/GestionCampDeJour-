@@ -18,6 +18,7 @@ import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
 import com.example.a1555108.gestioncampdejour.Singleton.Singleton;
 import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
+import com.example.a1555108.gestioncampdejour.Singleton.SingletonUserTest;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //setUserService();
         // Set up the login form.
 
     }
@@ -40,13 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(i);
     }
     public void signIn(View view) {
-        Intent i = new Intent(getApplicationContext(),ListActivity.class);
-        SingletonUser userSetup = new SingletonUser(getApplicationContext());
-        userSetup.init(getApplicationContext());
         setUserService();
-
-        //userSetup.bus.post(userSetup.connectedUser);
-        startActivity(i);
     }
 
 
@@ -54,15 +50,22 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void setUserService(){
+
         service.getUser().enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+                // code si ca marche
                 userConnect =response.body();
+                Intent i = new Intent(getApplicationContext(),ListActivity.class);
+                SingletonUserTest test = SingletonUserTest.getInstance();
+                test.setUserConnected(userConnect);
+                startActivity(i);
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
+                // code quand marche pas
+                Log.i("erreur", "pas rentrer dans le response");
             }
         });
     }

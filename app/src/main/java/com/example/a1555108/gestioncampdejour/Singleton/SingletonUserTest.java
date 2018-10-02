@@ -16,10 +16,10 @@ public class SingletonUserTest {
     }
 
     private SingletonUserTest() {
-        //Priate to prevent ppl to instantiate this 
+        //Priate to prevent ppl to instantiate this
     }
 
-    public static User getUserConnected() {
+    public  User getUserConnected() {
         return userConnected;
     }
     public void setUserConnected(User user) {
