@@ -10,9 +10,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.a1555108.gestioncampdejour.Classes.DrawerCopy;
 import com.example.a1555108.gestioncampdejour.R;
+import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
 
 public class AddCamperActivity extends BaseActivity {
 
@@ -25,6 +27,13 @@ public class AddCamperActivity extends BaseActivity {
         setContentView(R.layout.activity_add_camper);
 
 
+        //Setup^nom
+        SingletonUser sing = SingletonUser.getInstance();
+        NavigationView navView = (NavigationView) findViewById(R.id.navBar);
+        View headerView = navView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.HeaderNavPlease);
+        navUsername.setText(sing.getUserConnected().getCampName());
+        //Setup^nom
         //nav
         NavigationView navBar =(NavigationView) findViewById(R.id.navBar);
         final DrawerLayout drawer_layout = (DrawerLayout) findViewById(R.id.drawer_Layout);

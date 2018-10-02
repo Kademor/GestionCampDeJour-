@@ -1,28 +1,28 @@
 package com.example.a1555108.gestioncampdejour.Singleton;
 
-import android.content.Context;
-
 import com.example.a1555108.gestioncampdejour.Classes.User;
-import com.squareup.otto.Bus;
 
 public class SingletonUser {
-    public Bus bus;
-    private static SingletonUser instance;
-    public User connectedUser;
+    private  static User userConnected;
+    private static SingletonUser ourInstance;
 
-    public SingletonUser(Context c){
-        bus = new Bus();
+
+
+    public static SingletonUser getInstance() {
+        if (ourInstance == null){
+            ourInstance = new SingletonUser();
+        }
+        return ourInstance;
     }
 
-    public  void init(Context c){
-        if(instance == null){
-            instance = new SingletonUser(c);
-        }else{throw new IllegalMonitorStateException("Instance deja partie");}
+    private SingletonUser() {
+        //Priate to prevent ppl to instantiate this
     }
 
-    public  SingletonUser get(Context c){
-        if(instance == null){
-            throw new IllegalMonitorStateException("hey non");
-        }else{return instance;}
+    public  User getUserConnected() {
+        return userConnected;
+    }
+    public void setUserConnected(User user) {
+        userConnected = user;
     }
 }

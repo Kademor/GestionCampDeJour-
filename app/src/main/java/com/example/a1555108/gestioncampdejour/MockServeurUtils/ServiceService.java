@@ -19,7 +19,7 @@ public interface ServiceService {
     Call<User> getUser();
 
     @GET("/")
-    Call<Camper> getCamper();
+    Call<Camper> getCamper(int camperId);
 
     @GET("/")
     Call<ArrayList<CamperList>> getCamperList();

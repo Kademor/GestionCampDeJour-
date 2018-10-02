@@ -24,9 +24,6 @@ import com.example.a1555108.gestioncampdejour.MockServeurUtils.RetroFitUtils;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
 import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
-import com.example.a1555108.gestioncampdejour.Singleton.SingletonUserTest;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -53,7 +50,7 @@ public class ListActivity extends AppCompatActivity {
         //NAV BAR SETUP
         //petite fleche
         //singleton show user
-        SingletonUserTest sing = SingletonUserTest.getInstance();
+        SingletonUser sing = SingletonUser.getInstance();
         NavigationView navView = (NavigationView) findViewById(R.id.navBar);
         View headerView = navView.getHeaderView(0);
         TextView navUsername = (TextView) headerView.findViewById(R.id.HeaderNavPlease);
@@ -91,6 +88,7 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
 
     }
 

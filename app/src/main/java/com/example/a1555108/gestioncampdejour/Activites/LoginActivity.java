@@ -1,6 +1,5 @@
 package com.example.a1555108.gestioncampdejour.Activites;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,17 +7,13 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 
 import com.example.a1555108.gestioncampdejour.Classes.User;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.RetroFitUtils;
-import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceMethods;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
-import com.example.a1555108.gestioncampdejour.Singleton.Singleton;
 import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
-import com.example.a1555108.gestioncampdejour.Singleton.SingletonUserTest;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 // code si ca marche
                 userConnect =response.body();
                 Intent i = new Intent(getApplicationContext(),ListActivity.class);
-                SingletonUserTest test = SingletonUserTest.getInstance();
+                SingletonUser test = SingletonUser.getInstance();
                 test.setUserConnected(userConnect);
                 startActivity(i);
             }
