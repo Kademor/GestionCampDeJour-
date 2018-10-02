@@ -38,14 +38,14 @@ public class ServiceSeriveMock implements ServiceService{
 
     @Override
     public Call<ArrayList<CamperList>> getCamperList() {
-        CamperList josh = new CamperList(1,"josh", "tremblay");
-        CamperList jean = new CamperList(2,"jean", "tremblay");
-        CamperList bob = new CamperList(3,"bob", "tremblay");
+            CamperList josh = new CamperList(1,"josh", "tremblay");
+            CamperList jean = new CamperList(2,"jean", "tremblay");
+            CamperList bob = new CamperList(3,"bob", "tremblay");
 
-        ArrayList<CamperList> listNomCampeurs = new ArrayList<>();
-        listNomCampeurs.add(josh);
-        listNomCampeurs.add(jean);
-        listNomCampeurs.add(bob);
+            ArrayList<CamperList> listNomCampeurs = new ArrayList<>();
+            listNomCampeurs.add(josh);
+            listNomCampeurs.add(jean);
+            listNomCampeurs.add(bob);
 
         return delegate.returningResponse(listNomCampeurs).getCamperList();
 

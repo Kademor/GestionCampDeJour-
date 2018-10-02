@@ -8,9 +8,11 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 
+import com.example.a1555108.gestioncampdejour.Classes.CamperList;
 import com.example.a1555108.gestioncampdejour.Classes.User;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.RetroFitUtils;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceMethods;
@@ -18,6 +20,9 @@ import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
 import com.example.a1555108.gestioncampdejour.Singleton.Singleton;
 import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,24 +32,34 @@ public class LoginActivity extends AppCompatActivity {
 
     User userConnect;
     ServiceService service = RetroFitUtils.getMock();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Button btnSignIn = findViewById(R.id.btn_sign_in);
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setUserService();
+                signIn();
+            }
+        });
+       // setListeCamperMock();
         // Set up the login form.
 
     }
 
     public void register(View v){
         Intent i = new Intent(getApplicationContext(),SignUpActivity.class);
+
         startActivity(i);
     }
-    public void signIn(View view) {
+    public void signIn() {
         Intent i = new Intent(getApplicationContext(),ListActivity.class);
         SingletonUser userSetup = new SingletonUser(getApplicationContext());
         userSetup.init(getApplicationContext());
-        setUserService();
-
         //userSetup.bus.post(userSetup.connectedUser);
         startActivity(i);
     }
@@ -62,10 +77,14 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(),"fuck",Toast.LENGTH_LONG).show();
             }
         });
     }
+
+
+
+
 
 
 
