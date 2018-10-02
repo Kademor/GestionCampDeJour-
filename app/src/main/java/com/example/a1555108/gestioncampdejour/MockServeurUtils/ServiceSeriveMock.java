@@ -51,5 +51,15 @@ public class ServiceSeriveMock implements ServiceService{
 
     }
 
+    @Override
+    public Call<User> createUser(User user) {
+        return null;
+    }
+
+    @Override
+    public Call<Camper> createCamper(Camper camper) {
+        return null;
+    }
+
 
 }

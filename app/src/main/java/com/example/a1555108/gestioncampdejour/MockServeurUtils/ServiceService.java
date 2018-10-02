@@ -24,9 +24,9 @@ public interface ServiceService {
     @GET("/")
     Call<ArrayList<CamperList>> getCamperList();
 
+    @POST Call<User> createUser(User user);
 
-
-
+    @POST Call<Camper> createCamper(Camper camper);
 
 
 }
