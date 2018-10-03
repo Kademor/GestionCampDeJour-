@@ -20,6 +20,8 @@ import com.example.a1555108.gestioncampdejour.R;
 import com.example.a1555108.gestioncampdejour.Singleton.SingletonCamper;
 import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
 
+import org.w3c.dom.Text;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,6 +49,7 @@ public class CamperActivity extends AppCompatActivity {
         navUsername.setText(sing.getUserConnected().getCampName());
         //Setup^nom
 
+        setUpInfosCamper();
         //set
 
         NavigationView navBar =(NavigationView) findViewById(R.id.navBar);
@@ -67,20 +70,36 @@ public class CamperActivity extends AppCompatActivity {
 
     }
 
-    public void setCurrentCampet(int camperId){
+
+    public void setUpInfosCamper(){
         SingletonCamper sing = SingletonCamper.getInstance();
+        currentCamper = sing.getSelectedCamper();
 
-        service.getCamper(camperId).enqueue(new Callback<Camper>() {
-            @Override
-            public void onResponse(Call<Camper> call, Response<Camper> response) {
-                currentCamper = response.body();
-            }
+        TextView textViewName = findViewById(R.id.camperName);
+        textViewName.setText(currentCamper.getFirstName());
 
-            @Override
-            public void onFailure(Call<Camper> call, Throwable t) {
+        TextView textViewLastName = findViewById(R.id.camperLastName);
+        textViewLastName.setText(currentCamper.getLastName());
 
-            }
-        });
+        TextView textViewAlergies = findViewById(R.id.camperAlergies);
+        String test= " ";
+        int conteur = 0;
+        for (String alegie:currentCamper.getAlergies()){
+            if(conteur ==0)
+                test = alegie;
+            else
+              test += "," + alegie;
+            conteur++;
+        }
+        textViewAlergies.setText(test);
+
+        TextView textViewNumber = findViewById(R.id.camperNumber);
+        textViewNumber.setText(currentCamper.getEmergencyNumber());
+
+        TextView textViewCase = findViewById(R.id.camperCase);
+        textViewCase.setText(currentCamper.getSpecialCase());
+
+
     }
 
     //Faire fonctionner hamburger

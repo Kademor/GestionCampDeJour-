@@ -23,12 +23,14 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:gravity="center"
                 android:text="@string/txtFirstName"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:gravity="bottom"
+                android:gravity="center"
+                android:id="@+id/camperName"
                 />
         </LinearLayout>
         <LinearLayout
@@ -40,12 +42,14 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:gravity="center"
                 android:text="@string/txtLastName"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:gravity="bottom"
+                android:gravity="center"
+                android:id="@+id/camperLastName"
                 />
         </LinearLayout>
         <LinearLayout
@@ -57,12 +61,14 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:gravity="center"
                 android:text="@string/txtAlergies"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:gravity="bottom"
+                android:gravity="center"
+                android:id="@+id/camperAlergies"
                 />
         </LinearLayout>
         <LinearLayout
@@ -74,12 +80,14 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:gravity="center"
                 android:text="@string/txtEmergencyNumber"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:gravity="bottom"
+                android:gravity="center"
+                android:id="@+id/camperNumber"
                 />
         </LinearLayout>
         <LinearLayout
@@ -90,13 +98,15 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:layout_weight="4"
                 android:text="@string/txtSpecialCase"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:gravity="bottom"
+                android:gravity="center"
+                android:id="@+id/camperCase"
                 />
         </LinearLayout>
 

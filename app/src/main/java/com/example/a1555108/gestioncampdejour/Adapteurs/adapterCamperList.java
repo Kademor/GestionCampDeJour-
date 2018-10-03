@@ -77,7 +77,7 @@ public class adapterCamperList extends ArrayAdapter<CamperList>{
         service.getCamper(CamperId).enqueue(new Callback<Camper>() {
             @Override
             public void onResponse(Call<Camper> call, Response<Camper> response) {
-               camperLoad = response.body();
+                camperLoad = response.body();
                 Intent i = new Intent( c,CamperActivity.class);
                 SingletonCamper test = SingletonCamper.getInstance();
                 test.setSelectedCamper(camperLoad);

@@ -32,8 +32,9 @@ public class ServiceSeriveMock implements ServiceService{
     @Override
     public Call<Camper> getCamper(int camperId) {
         ArrayList<String> allergiess = new ArrayList<String>();
-        allergiess.add("Malaria");
-        return delegate.returningResponse(new Camper(1,"josh", "tremblay", allergiess, "12", "k")).getCamper(camperId);
+        allergiess.add("Poil animaux");
+        allergiess.add("Beurre d'arachides");
+        return delegate.returningResponse(new Camper(1,"Josh", "Tremblay", allergiess, "514-846-1087", "Dislexie")).getCamper(camperId);
     }
 
     @Override
