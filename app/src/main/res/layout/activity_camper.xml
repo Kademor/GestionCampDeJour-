@@ -13,8 +13,10 @@
         android:layout_height="match_parent"
         tools:context=".Activites.CamperActivity"
         android:orientation="vertical"
+
         >
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -23,12 +25,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:textSize="20dp"
                 android:gravity="center"
+                android:textStyle="bold"
                 android:text="@string/txtFirstName"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:textSize="20dp"
                 android:gravity="center"
                 android:id="@+id/camperName"
                 />
@@ -42,12 +47,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:textSize="20dp"
                 android:gravity="center"
+                android:textStyle="bold"
                 android:text="@string/txtLastName"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:textSize="20dp"
                 android:gravity="center"
                 android:id="@+id/camperLastName"
                 />
@@ -61,12 +69,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:text="@string/txtAlergies"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:textSize="20dp"
                 android:gravity="center"
                 android:id="@+id/camperAlergies"
                 />
@@ -80,12 +91,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:textStyle="bold"
+                android:textSize="20dp"
                 android:gravity="center"
                 android:text="@string/txtEmergencyNumber"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:textSize="20dp"
                 android:gravity="center"
                 android:id="@+id/camperNumber"
                 />
@@ -100,10 +114,13 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_weight="4"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 android:text="@string/txtSpecialCase"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:textSize="20dp"
                 android:layout_weight="4"
                 android:gravity="center"
                 android:id="@+id/camperCase"

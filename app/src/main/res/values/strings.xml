@@ -55,5 +55,6 @@
     <string name="Home">Home</string>
     <string name="CreateCamper">Create camper</string>
     <string name="LogOut">Log out</string>
+    <string name="ErreurMock">ErreurMock</string>
 
 </resources>

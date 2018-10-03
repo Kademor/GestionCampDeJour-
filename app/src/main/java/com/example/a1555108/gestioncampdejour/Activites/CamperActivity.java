@@ -30,7 +30,6 @@ import retrofit2.Response;
 public class CamperActivity extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     DrawerCopy methodesDrawer = new DrawerCopy();
-    ServiceService service = RetroFitUtils.getMock();
     Camper currentCamper;
 
     @Override

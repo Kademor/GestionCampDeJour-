@@ -27,8 +27,6 @@
         <activity android:name=".Activites.ListActivity"></activity>
         <activity android:name=".Activites.CamperActivity"></activity>
         <activity android:name=".Activites.AddCamperActivity"></activity>
-        <activity android:name=".Activites.NoteActivity" />
-        <activity android:name=".Activites.BaseActivity"></activity>
     </application>
 
 </manifest>
