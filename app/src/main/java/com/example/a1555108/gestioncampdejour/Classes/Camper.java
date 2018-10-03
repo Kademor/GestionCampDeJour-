@@ -1,5 +1,6 @@
 package com.example.a1555108.gestioncampdejour.Classes;
 
+import java.util.Date;
 import java.util.List;
 
 public class Camper {
@@ -10,6 +11,7 @@ public class Camper {
     private List<String> alergies;
     private String emergencyNumber;
     private String specialCase;
+    private List<Date> datePresent;
 
     public Camper( int _id, String _firstName, String _lastName, List<String> _alergies, String _emergencyNumber, String _specialCase){
         this.id  = _id;
@@ -65,6 +67,25 @@ public class Camper {
     }
     public void setAlergies(List<String> alergies) {
         this.alergies = alergies;
+    }
+
+    public void addDatePresence(Date dateAjouter){
+        if (!finIfDateExists(dateAjouter)){
+            datePresent.add(dateAjouter);
+        }
+    }
+
+    public boolean finIfDateExists(Date dateTest){
+        for (Date listDate : datePresent){
+            if (listDate.getDay() == dateTest.getDay()){
+                return  true;
+            }
+        }
+        return false;
+    }
+
+    public List<Date> getDatePresent() {
+        return datePresent;
     }
 }
 

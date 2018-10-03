@@ -23,7 +23,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
         <AutoCompleteTextView
-            android:id="@+id/FirstName"
+            android:id="@+id/signInFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/HintFirstName"
@@ -36,7 +36,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
         <AutoCompleteTextView
-            android:id="@+id/LastName"
+            android:id="@+id/signInLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/HintLastName"
@@ -49,7 +49,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
         <AutoCompleteTextView
-            android:id="@+id/CampName"
+            android:id="@+id/signInCampName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/HintCampName"
@@ -62,7 +62,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
         <AutoCompleteTextView
-            android:id="@+id/Password"
+            android:id="@+id/signInPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/HintPassword"
@@ -75,7 +75,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
         <AutoCompleteTextView
-            android:id="@+id/ConfirmPassword"
+            android:id="@+id/signInConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/HintConfirmPassword"

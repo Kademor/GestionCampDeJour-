@@ -63,9 +63,11 @@ public class adapterCamperList extends ArrayAdapter<CamperList>{
             public void onClick(View v) {
                 if (btncheckMark.getText().equals("✔") ){
                     btncheckMark.setText(" ");
+                    camperUnit.setPresent(false);
                 }
                 else{
                     btncheckMark.setText("✔");
+                    camperUnit.setPresent(true);
                 }
             }
         });

@@ -5,6 +5,7 @@ public class CamperList {
     private int id;
     private String firstName;
     private String lastName;
+    private boolean present;
 
     public CamperList(int _id, String _firstName, String _lastName){
         id= _id;
@@ -29,5 +30,12 @@ public class CamperList {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public void setPresent(boolean present) {
+        this.present = present;
+    }
+    public  boolean getPresent(){
+        return present;
     }
 }
