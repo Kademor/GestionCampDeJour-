@@ -31,10 +31,7 @@ public class ServiceSeriveMock implements ServiceService{
 
     @Override
     public Call<Camper> getCamper(int camperId) {
-        ArrayList<String> allergiess = new ArrayList<String>();
-        allergiess.add("Poil animaux");
-        allergiess.add("Beurre d'arachides");
-        return delegate.returningResponse(new Camper(1,"Josh", "Tremblay", allergiess, "514-846-1087", "Dislexie")).getCamper(camperId);
+        return delegate.returningResponse(new Camper(1,"Josh", "Tremblay", "Poil animaux, Beurre arachide" ,"514-846-1087", "Dislexie")).getCamper(camperId);
     }
 
     @Override
@@ -54,12 +51,14 @@ public class ServiceSeriveMock implements ServiceService{
 
     @Override
     public Call<User> createUser(User user) {
-        return null;
+        User user2 = new User("Philippe","Morin" , "Merlin" ,"Password");
+        return delegate.returningResponse(user2).createUser(user2);
     }
 
     @Override
     public Call<Camper> createCamper(Camper camper) {
-        return null;
+        Camper camper2 =  new Camper(1,"Josh", "Tremblay", "Poil animaux, Beurre arachide" ,"514-846-1087", "Dislexie");
+        return delegate.returningResponse(camper2).createCamper(camper);
     }
 
 

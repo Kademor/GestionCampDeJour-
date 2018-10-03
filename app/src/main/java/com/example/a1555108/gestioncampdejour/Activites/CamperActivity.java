@@ -82,16 +82,7 @@ public class CamperActivity extends AppCompatActivity {
         textViewLastName.setText(currentCamper.getLastName());
 
         TextView textViewAlergies = findViewById(R.id.camperAlergies);
-        String test= " ";
-        int conteur = 0;
-        for (String alegie:currentCamper.getAlergies()){
-            if(conteur ==0)
-                test = alegie;
-            else
-              test += "," + alegie;
-            conteur++;
-        }
-        textViewAlergies.setText(test);
+        textViewAlergies.setText(currentCamper.getAlergies());
 
         TextView textViewNumber = findViewById(R.id.camperNumber);
         textViewNumber.setText(currentCamper.getEmergencyNumber());

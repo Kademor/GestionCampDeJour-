@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,8 +51,14 @@ public class SignUpActivity extends AppCompatActivity {
         service.createUser(u).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(i);
+                if (response.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(),"user crée", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(i);
+                }
+                else {
+                    Log.i("ERREURMOCK", String.valueOf(response.code()));
+                }
             }
 
             @Override

@@ -122,7 +122,6 @@ public class ListActivity extends AppCompatActivity {
             public void onResponse(Call<ArrayList<CamperList>> call, Response<ArrayList<CamperList>> response) {
                 if (response.isSuccessful()){
                     adapter.addAll(response.body());
-
                 }
                 else {
                     Log.i("ERREURMOCK", String.valueOf(response.code()));

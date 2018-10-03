@@ -8,12 +8,12 @@ public class Camper {
     private int AnimId;
     private String firstName;
     private String lastName;
-    private List<String> alergies;
+    private String alergies;
     private String emergencyNumber;
     private String specialCase;
     private List<Date> datePresent;
 
-    public Camper( int _id, String _firstName, String _lastName, List<String> _alergies, String _emergencyNumber, String _specialCase){
+    public Camper( int _id, String _firstName, String _lastName, String _alergies, String _emergencyNumber, String _specialCase){
         this.id  = _id;
         this.firstName = _firstName;
         this.lastName = _lastName;
@@ -62,10 +62,10 @@ public class Camper {
         this.specialCase = specialCase;
     }
 
-    public List<String> getAlergies() {
+    public String getAlergies() {
         return alergies;
     }
-    public void setAlergies(List<String> alergies) {
+    public void setAlergies(String alergies) {
         this.alergies = alergies;
     }
 
