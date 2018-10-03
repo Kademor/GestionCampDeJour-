@@ -12,14 +12,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.a1555108.gestioncampdejour.Classes.Camper;
 import com.example.a1555108.gestioncampdejour.Classes.DrawerCopy;
+import com.example.a1555108.gestioncampdejour.MockServeurUtils.RetroFitUtils;
+import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
+import com.example.a1555108.gestioncampdejour.Singleton.SingletonCamper;
 import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class CamperActivity extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     DrawerCopy methodesDrawer = new DrawerCopy();
+    ServiceService service = RetroFitUtils.getMock();
+    Camper currentCamper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +46,8 @@ public class CamperActivity extends AppCompatActivity {
         TextView navUsername = (TextView) headerView.findViewById(R.id.HeaderNavPlease);
         navUsername.setText(sing.getUserConnected().getCampName());
         //Setup^nom
+
+        //set
 
         NavigationView navBar =(NavigationView) findViewById(R.id.navBar);
         final DrawerLayout drawer_layout = (DrawerLayout) findViewById(R.id.drawer_Layout);
@@ -55,6 +67,21 @@ public class CamperActivity extends AppCompatActivity {
 
     }
 
+    public void setCurrentCampet(int camperId){
+        SingletonCamper sing = SingletonCamper.getInstance();
+
+        service.getCamper(camperId).enqueue(new Callback<Camper>() {
+            @Override
+            public void onResponse(Call<Camper> call, Response<Camper> response) {
+                currentCamper = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<Camper> call, Throwable t) {
+
+            }
+        });
+    }
 
     //Faire fonctionner hamburger
     @Override

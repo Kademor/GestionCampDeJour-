@@ -34,26 +34,16 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-       // setListeCamperMock();
-        //setUserService();
-        // Set up the login form.
-
     }
 
     public void register(View v){
         Intent i = new Intent(getApplicationContext(),SignUpActivity.class);
-
         startActivity(i);
     }
 
     public void signIn(View view) {
         setUserService();
     }
-
-
-
-
 
     public void setUserService(){
 
