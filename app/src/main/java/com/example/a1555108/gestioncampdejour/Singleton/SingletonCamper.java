@@ -20,10 +20,10 @@ public class SingletonCamper {
         //Priate to prevent ppl to instantiate this
     }
 
-    public  Camper getUserConnected() {
+    public  Camper getSelectedCamper() {
         return selectedCamper;
     }
-    public void setUserConnected(Camper camper) {
+    public void setSelectedCamper(Camper camper) {
         selectedCamper = camper;
     }
 }

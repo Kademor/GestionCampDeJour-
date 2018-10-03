@@ -45,7 +45,9 @@ public class ListActivity extends AppCompatActivity {
         ListView lv = (ListView) findViewById(R.id.lv_camper_list);
         adapter = new adapterCamperList(this);
         setListeCamperMock();
+        adapter.c = getApplicationContext();
         lv.setAdapter(adapter);
+
 
         //NAV BAR SETUP
         //petite fleche
@@ -120,6 +122,7 @@ public class ListActivity extends AppCompatActivity {
             public void onResponse(Call<ArrayList<CamperList>> call, Response<ArrayList<CamperList>> response) {
                 if (response.isSuccessful()){
                     adapter.addAll(response.body());
+
                 }
                 else {
                     Log.i("ERREURMOCK", String.valueOf(response.code()));
