@@ -65,11 +65,6 @@ public class ListActivity extends AppCompatActivity {
         TextView navUsername = (TextView) headerView.findViewById(R.id.HeaderNavPlease);
         navUsername.setText(sing.getUserConnected().getCampName());
 
-        View inflatedView = getLayoutInflater().inflate(R.layout.drawer_header, null);
-        TextView tv2 = findViewById(R.id.HeaderNavPlease);
-        TextView tv = inflatedView.findViewById(R.id.HeaderNavPlease);
-        tv.setText("helllo");
-
         NavigationView navBar =(NavigationView) findViewById(R.id.navBar);
         final DrawerLayout drawer_layout = (DrawerLayout) findViewById(R.id.drawer_Layout);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
