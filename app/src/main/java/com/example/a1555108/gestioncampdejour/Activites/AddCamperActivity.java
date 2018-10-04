@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.a1555108.gestioncampdejour.Classes.Camper;
 import com.example.a1555108.gestioncampdejour.Classes.DrawerCopy;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.RetroFitUtils;
+import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceMethods;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
 import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
@@ -34,8 +35,7 @@ public class AddCamperActivity extends AppCompatActivity {
 
     ActionBarDrawerToggle toggle;
     DrawerCopy methodesDrawer = new DrawerCopy();
-    ServiceService service = RetroFitUtils.getMock();
-
+    ServiceMethods methodsService = new ServiceMethods();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +86,7 @@ public class AddCamperActivity extends AppCompatActivity {
         TextView tvCase = findViewById(R.id.txtSpecialCase);
 
         Camper camper = new Camper(0,tvFirstName.getText().toString(),tvLastName.getText().toString(),tvAlergies.getText().toString(), tvNumber.getText().toString(), tvCase.getText().toString());
-        setAddCamper(camper);
+        methodsService.setAddCamper(getApplicationContext(),camper);
     }
 
     @Override
@@ -109,29 +109,4 @@ public class AddCamperActivity extends AppCompatActivity {
         toggle.onConfigurationChanged(newConfig);
         super.onConfigurationChanged(newConfig);
     }
-
-
-    public void setAddCamper(Camper c){
-        service.createCamper(c).enqueue(new Callback<Camper>() {
-            @Override
-            public void onResponse(Call<Camper> call, Response<Camper> response) {
-                if (response.isSuccessful()){
-                    Toast.makeText(getApplicationContext(),"camper created", Toast.LENGTH_LONG).show();
-                    finish();
-
-                }else{
-                    Log.i("ErreurResponse", "Response pas marcher");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Camper> call, Throwable t) {
-                Log.i(String.valueOf(R.string.ErreurMock),  t.getMessage());
-            }
-        });
-
-
-
-    }
-
 }

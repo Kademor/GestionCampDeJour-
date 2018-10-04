@@ -16,7 +16,7 @@ public interface ServiceService {
     Call<String> racine();
 
     @GET("/")
-    Call<User> getUser();
+    Call<User> getUser(String campName, String password);
 
     @GET("/")
     Call<Camper> getCamper(int camperId);

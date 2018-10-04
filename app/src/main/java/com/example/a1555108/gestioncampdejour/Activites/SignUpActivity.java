@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.a1555108.gestioncampdejour.Classes.User;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.RetroFitUtils;
+import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceMethods;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceSeriveMock;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
@@ -21,7 +22,7 @@ import retrofit2.Response;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    ServiceService service = RetroFitUtils.getMock();
+    ServiceMethods methodsService = new ServiceMethods();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,32 +40,10 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"mot de passe non identique", Toast.LENGTH_LONG).show();
         }else {
             User user = new User(tvFirstName.getText().toString(),tvLastName.getText().toString(),tvCampName.getText().toString(), tvPassword.getText().toString());
-            sendUserServer(user);
+            methodsService.sendUserServer(this.getApplicationContext(), user);
         }
-
     }
     public void back(View v){
         finish();
-    }
-
-    public void sendUserServer(User u){
-        service.createUser(u).enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                if (response.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(),"user crée", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(i);
-                }
-                else {
-                    Log.i("ERREURMOCK", String.valueOf(response.code()));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-
-            }
-        });
     }
 }

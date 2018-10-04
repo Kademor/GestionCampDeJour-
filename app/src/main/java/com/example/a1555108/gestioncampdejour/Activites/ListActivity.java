@@ -1,5 +1,7 @@
 package com.example.a1555108.gestioncampdejour.Activites;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
@@ -10,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +27,8 @@ import com.example.a1555108.gestioncampdejour.MockServeurUtils.RetroFitUtils;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
 import com.example.a1555108.gestioncampdejour.Singleton.SingletonUser;
+
+import org.w3c.dom.ls.LSException;
 
 import java.util.ArrayList;
 
@@ -52,6 +57,8 @@ public class ListActivity extends AppCompatActivity {
         //NAV BAR SETUP
         //petite fleche
         //singleton show user
+
+
         SingletonUser sing = SingletonUser.getInstance();
         NavigationView navView = (NavigationView) findViewById(R.id.navBar);
         View headerView = navView.getHeaderView(0);
@@ -90,8 +97,6 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
     }
 
     //Faire fonctionner hamburger

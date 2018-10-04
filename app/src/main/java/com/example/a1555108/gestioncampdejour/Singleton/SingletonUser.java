@@ -19,6 +19,9 @@ public class SingletonUser {
         //Priate to prevent ppl to instantiate this
     }
 
+    public void logOut(){
+        ourInstance = new SingletonUser();
+    }
     public  User getUserConnected() {
         return userConnected;
     }

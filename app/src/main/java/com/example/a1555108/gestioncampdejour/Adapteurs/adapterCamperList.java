@@ -19,6 +19,7 @@ import com.example.a1555108.gestioncampdejour.Activites.SignUpActivity;
 import com.example.a1555108.gestioncampdejour.Classes.Camper;
 import com.example.a1555108.gestioncampdejour.Classes.CamperList;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.RetroFitUtils;
+import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceMethods;
 import com.example.a1555108.gestioncampdejour.MockServeurUtils.ServiceService;
 import com.example.a1555108.gestioncampdejour.R;
 import com.example.a1555108.gestioncampdejour.Singleton.SingletonCamper;
@@ -32,8 +33,7 @@ import retrofit2.Response;
 public class adapterCamperList extends ArrayAdapter<CamperList>{
 
     public Bus monbus = new Bus();
-    Camper camperLoad;
-    ServiceService service = RetroFitUtils.getMock();
+    ServiceMethods methodsService = new ServiceMethods();
     public Context c;
 
 
@@ -57,7 +57,7 @@ public class adapterCamperList extends ArrayAdapter<CamperList>{
         btncamperName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getCamperALoad(camperUnit.getId());
+                methodsService.getCamperALoad(c,camperUnit.getId());
             }
         });
 
@@ -75,30 +75,6 @@ public class adapterCamperList extends ArrayAdapter<CamperList>{
             }
         });
         return  view;
-    }
-
-    //enqueue pour la requete
-    public void getCamperALoad(int CamperId){
-        service.getCamper(CamperId).enqueue(new Callback<Camper>() {
-            @Override
-            public void onResponse(Call<Camper> call, Response<Camper> response) {
-                if (response.isSuccessful()){
-                    camperLoad = response.body();
-                    Intent i = new Intent( c,CamperActivity.class);
-                    SingletonCamper test = SingletonCamper.getInstance();
-                    test.setSelectedCamper(camperLoad);
-                    c.startActivity(i);
-                }
-                else{
-                    Log.i("ErreurResponse", "Response pas marcher");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Camper> call, Throwable t) {
-                Log.i("Erreur mock",  t.getMessage());
-            }
-        });
     }
 
     public adapterCamperList(@NonNull Context context) {
